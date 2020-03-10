@@ -17,7 +17,7 @@ sharding:
       db2:
         type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: com.mysql.jdbc.Driver
-        url: jdbc:mysql://localhost:3306/db0
+        url: jdbc:mysql://localhost:3306/db2
         username: root
         password: 123456
     config:
@@ -26,7 +26,10 @@ sharding:
           inline:
             sharding-column: order_id
             algorithm-expression: db$->{order_id%3}
-        default-data-source-name: db0
+        tables:
+          t_order:
+            actual-data-nodes: db$->{0..2}.t_order
+      #        default-data-source-name: db0
       props:
         sql:
           show: true

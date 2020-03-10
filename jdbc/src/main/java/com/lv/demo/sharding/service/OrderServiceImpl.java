@@ -6,6 +6,8 @@ import com.lv.demo.sharding.model.OrderGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /***
  *@Title
  *@author shunlv
@@ -21,5 +23,15 @@ public class OrderServiceImpl implements OrderService {
         Order order = OrderGenerator.generate();
 
         orderMapper.insertSelective(order);
+    }
+
+    @Override
+    public List<Order> listOrder(Integer orderId) {
+        return orderMapper.listOrder(orderId);
+    }
+
+    @Override
+    public Order getOrder(Integer orderId) {
+        return orderMapper.selectByPrimaryKey(orderId);
     }
 }

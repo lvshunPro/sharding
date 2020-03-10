@@ -1,5 +1,9 @@
 package com.lv.demo.sharding.service;
 
+import com.lv.demo.sharding.model.Order;
+
+import java.util.List;
+
 /***
  *@Title
  *@author shunlv
@@ -8,4 +12,8 @@ package com.lv.demo.sharding.service;
 public interface OrderService {
 
     void addOrder();
+
+    List<Order> listOrder(Integer orderId);
+
+    Order getOrder(Integer orderId);
 }
