@@ -16,4 +16,6 @@ public interface OrderService {
     List<Order> listOrder(Integer orderId);
 
     Order getOrder(Integer orderId);
+
+//    Integer getApollo();
 }

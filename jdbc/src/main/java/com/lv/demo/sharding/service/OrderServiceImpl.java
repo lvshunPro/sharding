@@ -1,11 +1,13 @@
 package com.lv.demo.sharding.service;
 
+import com.lv.demo.sharding.config.ApolloParam;
 import com.lv.demo.sharding.mapper.OrderMapper;
 import com.lv.demo.sharding.model.Order;
 import com.lv.demo.sharding.model.OrderGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /***
@@ -17,6 +19,8 @@ import java.util.List;
 public class OrderServiceImpl implements OrderService {
     @Autowired
     public OrderMapper orderMapper;
+    @Resource
+    public ApolloParam apolloParam;
 
     @Override
     public void addOrder() {
@@ -34,4 +38,11 @@ public class OrderServiceImpl implements OrderService {
     public Order getOrder(Integer orderId) {
         return orderMapper.selectByPrimaryKey(orderId);
     }
+
+//    @Override
+//    public Integer getApollo() {
+//        return apolloParam.getBsDB0();
+//    }
+
+
 }

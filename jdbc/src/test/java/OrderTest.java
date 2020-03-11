@@ -36,11 +36,19 @@ public class OrderTest {
 
     @Test
     public void searchOneTest() throws InterruptedException {
-        Order order = orderService.getOrder(0);
-        Thread.sleep(1000);
-        Order order2 = orderService.getOrder(2);
-        Thread.sleep(1000);
-        Order order1 = orderService.getOrder(28);
-        System.out.println(order1.getOrderId());
+        Order order = orderService.getOrder(1);
+//        Thread.sleep(1000);
+//        Order order2 = orderService.getOrder(2);
+//        Thread.sleep(1000);
+//        Order order1 = orderService.getOrder(28);
+//        System.out.println(order1.getOrderId());
+    }
+
+    @Test
+    public void getApollo() {
+//        Integer apollo = orderService.getApollo();
+//        System.out.println(apollo);
+        orderService.getOrder(1);
+
     }
 }
