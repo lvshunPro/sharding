@@ -31,17 +31,11 @@ public class PreciseShardingDBAlogorithm implements PreciseShardingAlgorithm<Int
         this.bs_db_2 = apolloParam.getBsDB2();
     }
 
-//    public static void setBs_db_0(List<Integer> bs_db_0) {
-//        PreciseShardingDBAlogorithm.bs_db_0 = bs_db_0;
-//    }
-//
-//    public static void setBs_db_1(List<Integer> bs_db_1) {
-//        PreciseShardingDBAlogorithm.bs_db_1 = bs_db_1;
-//    }
-//
-//    public static void setBs_db_2(List<Integer> bs_db_2) {
-//        PreciseShardingDBAlogorithm.bs_db_2 = bs_db_2;
-//    }
+    public void refreshDB() {
+        this.bs_db_0 = apolloParam.getBsDB0();
+        this.bs_db_1 = apolloParam.getBsDB1();
+        this.bs_db_2 = apolloParam.getBsDB2();
+    }
 
      List<Integer> bs_db_0 = new ArrayList<>();
      List<Integer> bs_db_1 = new ArrayList<>();
@@ -53,7 +47,11 @@ public class PreciseShardingDBAlogorithm implements PreciseShardingAlgorithm<Int
     public String doSharding(Collection<String> databaseNames, PreciseShardingValue<Integer> shardingValue) {
 
         Integer value = shardingValue.getValue();
-        System.out.println("=====" + value);
+        System.out.println("=====" + apolloParam.getBsDB0());
+        System.out.println("=====" + apolloParam.getBsDB1());
+        System.out.println("=====" + apolloParam.getBsDB2());
+        System.out.println("=====" + databaseNames);
+        refreshDB();
         Integer index = 0;
         if(bs_db_0.contains(value)) {
             index = 0;
@@ -64,13 +62,13 @@ public class PreciseShardingDBAlogorithm implements PreciseShardingAlgorithm<Int
         }
 
 
-        Integer dbIndex = 0;
+
         for (String databaseName : databaseNames) {
-            if(index.equals(dbIndex)) {
+            if(databaseName !=null && databaseName.endsWith(index.toString())) {
                 System.out.println("====" + databaseName);
                 return databaseName;
             }
-            dbIndex ++;
+
         }
         throw new UnsupportedOperationException();
     }

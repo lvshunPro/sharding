@@ -1,27 +1,20 @@
-sharding:
-  jdbc:
-    datasource:
-      names: db0,db1,db2
-      db0:
-        type: com.alibaba.druid.pool.DruidDataSource
-        driver-class-name: com.mysql.jdbc.Driver
-        url: jdbc:mysql://localhost:3306/db0
-        username: root
-        password: 123456
-      db1:
-        type: com.alibaba.druid.pool.DruidDataSource
-        driver-class-name: com.mysql.jdbc.Driver
-        url: jdbc:mysql://localhost:3306/db1
-        username: root
-        password: 123456
-      db2:
-        type: com.alibaba.druid.pool.DruidDataSource
-        driver-class-name: com.mysql.jdbc.Driver
-        url: jdbc:mysql://localhost:3306/db2
-        username: root
-        password: 123456
-      props:
-        sql:
-          show: true
+db0:
+  databaseName: db0
+  driverClassName: com.mysql.jdbc.Driver
+  url: jdbc:mysql://localhost:3306/db0
+  username: root
+  password: 123456
+db1:
+  databaseName: db1
+  driverClassName: com.mysql.jdbc.Driver
+  url: jdbc:mysql://localhost:3306/db1
+  username: root
+  password: 123456
+db2:
+  databaseName: db2
+  driverClassName: com.mysql.jdbc.Driver
+  url: jdbc:mysql://localhost:3306/db2
+  username: root
+  password: 123456
 app.id: bike-state
 apollo.meta: http://10.1.11.94:10000

@@ -48,7 +48,7 @@ public class OrderTest {
     public void getApollo() {
 //        Integer apollo = orderService.getApollo();
 //        System.out.println(apollo);
-        orderService.getOrder(1);
+        orderService.getOrder(4);
 
     }
 }
